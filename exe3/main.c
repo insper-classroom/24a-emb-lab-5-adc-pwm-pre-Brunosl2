@@ -26,11 +26,20 @@ void data_task(void *p) {
 void process_task(void *p) {
     int data = 0;
 
+
     while (true) {
+        
+        int fila[5]; 
+        int sinal_filtrado;
         if (xQueueReceive(xQueueData, &data, 100)) {
             // implementar filtro aqui!
-            printf("Data: %d\n", data);
-            for (int i = 0; i < 5; i++)
+            fila[0] = fila[1];
+            fila[1] = fila[2];
+            fila[2] = fila[3];
+            fila[3] = fila[4];
+            fila[4] = data;
+            sinal_filtrado = (fila[0] + fila[1] + fila[2] + fila[3] + fila[4])/5;
+            printf("Sinal filtrado: %d\n", sinal_filtrado);
 
 
 
