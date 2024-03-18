@@ -29,7 +29,8 @@ void process_task(void *p) {
     while (true) {
         if (xQueueReceive(xQueueData, &data, 100)) {
             // implementar filtro aqui!
-
+            printf("Data: %d\n", data);
+            for (int i = 0; i < 5; i++)
 
 
 
